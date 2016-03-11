@@ -28,7 +28,15 @@ public class M3UF6NF1EX4 {
     }
     
     public void afegirEstudiant()throws Exception{
-        Estudiant e = new Estudiant("Anna","12345678P","kjfañ");
+        Estudiant e = new Estudiant("Anna","12345678P","carrer 1");
         gestor.afegirEstudiant(e);
+    }
+    public void afegirProfessor()throws Exception{
+        Professor p = new Professor("Raquel","12345678I","Deportiu");
+        gestor.afegirProfessor(p);
+    }
+    public void afegirAssignatura()throws Exception{
+        Assignatura a = new Assignatura("Català",6,"Llengua Catalana");
+        gestor.afegirAssignatura(a);
     }
 }

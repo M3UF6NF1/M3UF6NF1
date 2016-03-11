@@ -24,8 +24,16 @@ public class GestorBD {
         String valors = "'" + e.getNom() + "','" + e.getDni() + "','" + e.getAdreça() + "'";
         update.executeUpdate("INSERT INTO Estudiant VALUES(" + valors + ")");
     }
-            
-    
+    public void afegirProfessor(Professor p) throws Exception {
+        Statement update = c.createStatement();
+        String valors = "'" + p.getNom() + "','" + p.getDni() + "','" + p.getDepartament() + "'";
+        update.executeUpdate("INSERT INTO Professor VALUES(" + valors + ")");
+    }
+    public void afegirAssignatura(Assignatura a) throws Exception {
+        Statement update = c.createStatement();
+        String valors = "'" + a.getNom() + "','" + a.getCredits() + "','" + a.getDescripcio() + "'";
+        update.executeUpdate("INSERT INTO Assignatura VALUES(" + valors + ")");
+    }
 }
         
 
