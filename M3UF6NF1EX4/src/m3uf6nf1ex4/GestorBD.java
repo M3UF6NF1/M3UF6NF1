@@ -23,16 +23,19 @@ public class GestorBD {
         Statement update = c.createStatement();
         String valors = "'" + e.getNom() + "','" + e.getDni() + "','" + e.getAdreça() + "'";
         update.executeUpdate("INSERT INTO Estudiant VALUES(" + valors + ")");
+        c.close();
     }
     public void afegirProfessor(Professor p) throws Exception {
         Statement update = c.createStatement();
         String valors = "'" + p.getNom() + "','" + p.getDni() + "','" + p.getDepartament() + "'";
         update.executeUpdate("INSERT INTO Professor VALUES(" + valors + ")");
+        c.close();
     }
     public void afegirAssignatura(Assignatura a) throws Exception {
         Statement update = c.createStatement();
         String valors = "'" + a.getNom() + "'," + a.getCredits() + ",'" + a.getDescripcio() + "'";
         update.executeUpdate("INSERT INTO Assignatura VALUES(" + valors + ")");
+        c.close();
     }
     public void mostrarEstudiant() throws Exception {
         Statement buscar = c.createStatement();
@@ -40,6 +43,7 @@ public class GestorBD {
         while (r.next()){
             System.out.println("Nom: "+r.getString("nom")+ ", dni: "+r.getString("dni")+", Adreça: "+r.getString("adreça"));
         }
+        c.close();
     }
     public void mostrarProfessor() throws Exception {
         Statement buscar = c.createStatement();
@@ -47,14 +51,15 @@ public class GestorBD {
         while (r.next()){
             System.out.println("Nom: "+r.getString("nom")+ ", dni: "+r.getString("dni")+", Departament: "+r.getString("departament"));
         }
+        c.close();
     }
     public void mostrarAssignaturesProfessor(String dni) throws Exception {
         Statement buscar = c.createStatement();
-        String valor = dni;
         ResultSet r = buscar.executeQuery("select nom, dni_Professor from assignatura where dni_Professor = '"+dni+"'  order by nom ASC");
         while (r.next()){
             System.out.println("Nom: "+r.getString("nom")+ ", dni Professor: "+r.getString("dni_Professor"));
         }
+        c.close();
     }
 }
         
