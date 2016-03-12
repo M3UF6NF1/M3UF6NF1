@@ -12,7 +12,7 @@ public class GestorBD {
         Class.forName("org.apache.derby.jdbc.ClientDriver");
 
         //Establir la connexió
-        String urlBaseDades = "jdbc:derby://localhost:1527/UF6NF1Ex4";
+        String urlBaseDades = "jdbc:derby://localhost:1527/M3UF6NF1";
         String usuari = "alumne";
         String contrasenya = "alumne";
 
@@ -31,12 +31,31 @@ public class GestorBD {
     }
     public void afegirAssignatura(Assignatura a) throws Exception {
         Statement update = c.createStatement();
-        String valors = "'" + a.getNom() + "','" + a.getCredits() + "','" + a.getDescripcio() + "'";
+        String valors = "'" + a.getNom() + "'," + a.getCredits() + ",'" + a.getDescripcio() + "'";
         update.executeUpdate("INSERT INTO Assignatura VALUES(" + valors + ")");
     }
-    public void mostrarAssignatures(Professor assign) throws Exception {
-        Statement update = c.createStatement();
+    public void mostrarEstudiant() throws Exception {
+        Statement buscar = c.createStatement();
+        ResultSet r = buscar.executeQuery("select * from estudiant order by nom ASC");
+        while (r.next()){
+            System.out.println("Nom: "+r.getString("nom")+ ", dni: "+r.getString("dni")+", Adreça: "+r.getString("adreça"));
         }
+    }
+    public void mostrarProfessor() throws Exception {
+        Statement buscar = c.createStatement();
+        ResultSet r = buscar.executeQuery("select * from professor order by nom ASC");
+        while (r.next()){
+            System.out.println("Nom: "+r.getString("nom")+ ", dni: "+r.getString("dni")+", Departament: "+r.getString("departament"));
+        }
+    }
+    public void mostrarAssignaturesProfessor(String dni) throws Exception {
+        Statement buscar = c.createStatement();
+        String valor = dni;
+        ResultSet r = buscar.executeQuery("select nom, dni_Professor from assignatura where dni_Professor = '"+dni+"'  order by nom ASC");
+        while (r.next()){
+            System.out.println("Nom: "+r.getString("nom")+ ", dni Professor: "+r.getString("dni_Professor"));
+        }
+    }
 }
         
 

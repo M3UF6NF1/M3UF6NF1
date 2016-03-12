@@ -14,16 +14,34 @@ public class Assignatura {
     private String nom;
     private int credits;
     private String descripcio;
+    private String dniProfessor;
     
     /*Constructors*/
-    public Assignatura (String n, int c, String des)
+    public Assignatura (String n, int c, String des, String dniP)
     {
         nom = n;
         credits = c;
         descripcio = des;
+        dniProfessor = dniP;
+    }
+    public Assignatura (String dniP)
+    {
+        dniProfessor = dniP;
     }
     
     /*Metodes*/
+    public void setNom(String n){
+        nom = n;
+    }
+    public void setCredits(int c){
+        credits = c;
+    }
+    public void setDescripcio(String d){
+        descripcio = d;
+    }
+    public void setDniProfessor(String p){
+        dniProfessor = p;
+    }
     public String getNom(){
         return nom;
     }
@@ -32,5 +50,8 @@ public class Assignatura {
     }
     public String getDescripcio(){
         return descripcio;
+    }
+    public String getDniProfessor(){
+        return dniProfessor;
     }
 }
