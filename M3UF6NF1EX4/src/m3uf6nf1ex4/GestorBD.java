@@ -34,6 +34,9 @@ public class GestorBD {
         String valors = "'" + a.getNom() + "','" + a.getCredits() + "','" + a.getDescripcio() + "'";
         update.executeUpdate("INSERT INTO Assignatura VALUES(" + valors + ")");
     }
+    public void mostrarAssignatures(Professor assign) throws Exception {
+        Statement update = c.createStatement();
+        }
 }
         
 

@@ -16,15 +16,33 @@ public class M3UF6NF1EX4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception{
-        Scanner sc = new Scanner(System.in);
         
         M3UF6NF1EX4 classePrincipal = new M3UF6NF1EX4();
         classePrincipal.start();
-        
     }
     public void start() throws Exception{
+        Scanner yuna = new Scanner(System.in);
+        /*Atributs*/
+        boolean sortida = false;
+        int opcio;
         gestor = new GestorBD();
+        
+        while (sortida == false){
+            System.out.println("(0) Sortir, (1)Afegir Estudiant, (2) Afegir Assignatura, (3) Afegir Professor.");
+            opcio = yuna.nextInt();
+            switch(opcio){
+                case 0:
+                    sortida = true;
+                case 1:
+                    afegirEstudiant();
+                case 2:
+                    afegirAssignatura();
+                case 3:
+                    afegirProfessor();
+            }
+        }
         afegirEstudiant();
+        
     }
     
     public void afegirEstudiant()throws Exception{
