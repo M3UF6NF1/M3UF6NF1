@@ -33,4 +33,13 @@ public class Estudiant {
     public String getAdreça(){
         return adreça;
     }
+    public void setNom(){
+        nom = InsertarEstudiants.nomEstudiantField.getText();
+    }
+    public void setDni(){
+        dni = InsertarEstudiants.dniEstudiantField.getText();
+    }
+    public void setAdreça(){
+        adreça = InsertarEstudiants.adreçaEstudiantField.getText();
+    }
 }

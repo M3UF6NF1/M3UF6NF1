@@ -26,7 +26,10 @@ public class M3UF6NF1EX4 {
         int opcio;
         gestor = new GestorBD();
         
-        while (sortida == false){
+        Interficie window = new Interficie();
+        window.setVisible(true);
+        
+        /*while (sortida == false){
             System.out.println("(0) Sortir, (1)Afegir Estudiant, (2) Afegir Assignatura, (3) Afegir Professor, "
                     + "(4) Mostrar Estudiants, (5) Mostrar Professors");
             opcio = yuna.nextInt();
@@ -53,7 +56,7 @@ public class M3UF6NF1EX4 {
                     mostrarAssignaturesProfessor();
                     break;
             }
-        }
+        }*/
     }
     
     public void afegirEstudiant()throws Exception{
