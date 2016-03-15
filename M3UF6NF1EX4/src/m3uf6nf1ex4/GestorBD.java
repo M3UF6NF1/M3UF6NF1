@@ -1,5 +1,6 @@
 package m3uf6nf1ex4;
 
+import java.awt.List;
 import java.sql.* ;
 
 public class GestorBD {
@@ -76,6 +77,19 @@ public class GestorBD {
 
     public void afegirEstudiant(Assignatura a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public String cercarDni(){
+        public List<Dni> cercarDni(String dni) throws Exception {
+        Statement cerca = c.createStatement();
+        ResultSet r = cerca.executeQuery("SELECT * FROM CLIENTS WHERE NOM='" + nom +
+        "'");
+        LinkedList<Dni> llista = new LinkedList<Dni>();
+        while (r.next()) {
+        llista.add(new Assignatura(r.getString("nom"),r.getInt("credits"),r.getString("descripcio"),
+                r.getString("dni"),r.getString("TELEFON")));
+        }
+        return llista;
+        }
     }
 }
         
