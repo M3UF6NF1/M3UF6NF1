@@ -81,12 +81,10 @@ public class GestorBD {
     public String cercarDni(){
         public List<Dni> cercarDni(String dni) throws Exception {
         Statement cerca = c.createStatement();
-        ResultSet r = cerca.executeQuery("SELECT * FROM CLIENTS WHERE NOM='" + nom +
-        "'");
+        ResultSet r = cerca.executeQuery("SELECT dni FROM Professor");
         LinkedList<Dni> llista = new LinkedList<Dni>();
         while (r.next()) {
-        llista.add(new Assignatura(r.getString("nom"),r.getInt("credits"),r.getString("descripcio"),
-                r.getString("dni"),r.getString("TELEFON")));
+        llista.add(new Assignatura(r.getString("nom"),r.getInt("credits"),r.getString("descripcio"), r.getString("dni"),r.getString("TELEFON")));
         }
         return llista;
         }
