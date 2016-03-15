@@ -5,6 +5,8 @@
  */
 package m3uf6nf1ex4;
 
+import Vistas.InsertarEstudiants;
+
 /**
  *
  * @author marc

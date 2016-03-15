@@ -3,13 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package m3uf6nf1ex4;
+package Vistas;
+
+import m3uf6nf1ex4.GestorBD;
 
 /**
  *
  * @author Seiber
  */
 public class AssignaturesProfessor extends javax.swing.JFrame {
+    
+    private GestorBD gestor;
 
     /**
      * Creates new form InsertarEstudiants

@@ -12,7 +12,7 @@ public class GestorBD {
         Class.forName("org.apache.derby.jdbc.ClientDriver");
 
         //Establir la connexió
-        String urlBaseDades = "jdbc:derby://localhost:1527/M3UF6NF1";
+        String urlBaseDades = "jdbc:derby://localhost:1527/UF6NF1Ex4";
         String usuari = "alumne";
         String contrasenya = "alumne";
 
@@ -33,7 +33,7 @@ public class GestorBD {
     }
     public void afegirAssignatura(Assignatura a) throws Exception {
         Statement update = c.createStatement();
-        String valors = "'" + a.getNom() + "'," + a.getCredits() + ",'" + a.getDescripcio() + "'";
+        String valors = "'" + a.getNom() + "'," + a.getCredits() + ",'" + a.getDescripcio() + ",'" + a.getDniProfessor() + "'";
         update.executeUpdate("INSERT INTO Assignatura VALUES(" + valors + ")");
         c.close();
     }
@@ -60,6 +60,22 @@ public class GestorBD {
             System.out.println("Nom: "+r.getString("nom")+ ", dni Professor: "+r.getString("dni_Professor"));
         }
         c.close();
+    }
+
+    public void afegirProfessor(Estudiant p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void afegirProfessors(Estudiant p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void afegirProfessors(Professor p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void afegirEstudiant(Assignatura a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
         

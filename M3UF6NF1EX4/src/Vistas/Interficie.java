@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package m3uf6nf1ex4;
+package Vistas;
+
 
 /**
  *
  * @author Seiber
  */
 public class Interficie extends javax.swing.JFrame {
+    
+    
 
     /**
      * Creates new form Interficie
@@ -136,8 +139,8 @@ public class Interficie extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        InsertarAssignatures obj = new InsertarAssignatures();
-        setVisible(true);
+        InsertarEstudiants obj = new InsertarEstudiants();
+        obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -147,19 +150,19 @@ public class Interficie extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         InsertarProfessors obj = new InsertarProfessors();
-        setVisible(true);
+        obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         InsertarAssignatures obj = new InsertarAssignatures();
-        setVisible(true);
+        obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         AssignaturesProfessor obj = new AssignaturesProfessor();
-        setVisible(true);
+        obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -193,7 +196,8 @@ public class Interficie extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Interficie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

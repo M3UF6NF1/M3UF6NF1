@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package m3uf6nf1ex4;
+import Vistas.Interficie;
 import java.util.Scanner;
 
 /**
@@ -20,11 +21,6 @@ public class M3UF6NF1EX4 {
         classePrincipal.start();
     }
     public void start() throws Exception{
-        Scanner yuna = new Scanner(System.in);
-        /*Atributs*/
-        boolean sortida = false;
-        int opcio;
-        gestor = new GestorBD();
         
         Interficie window = new Interficie();
         window.setVisible(true);
