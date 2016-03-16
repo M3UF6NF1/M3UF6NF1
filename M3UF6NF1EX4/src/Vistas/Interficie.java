@@ -5,6 +5,9 @@
  */
 package Vistas;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -161,9 +164,15 @@ public class Interficie extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        AssignaturesProfessor obj = new AssignaturesProfessor();
-        obj.setVisible(true);
-        dispose();
+        AssignaturesProfessor obj;
+        try {
+            obj = new AssignaturesProfessor();
+            obj.setVisible(true);
+            dispose();
+        } catch (Exception ex) {
+            Logger.getLogger(Interficie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

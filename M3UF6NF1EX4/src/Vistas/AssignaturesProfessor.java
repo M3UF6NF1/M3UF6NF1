@@ -6,6 +6,7 @@
 package Vistas;
 
 import java.sql.Statement;
+import java.util.ArrayList;
 import m3uf6nf1ex4.GestorBD;
 
 /**
@@ -14,13 +15,15 @@ import m3uf6nf1ex4.GestorBD;
  */
 public class AssignaturesProfessor extends javax.swing.JFrame {
     
-    private GestorBD gestor;
-
+    private static GestorBD gestor;
+    
     /**
      * Creates new form InsertarEstudiants
      */
-    public AssignaturesProfessor() {
+    public AssignaturesProfessor() throws Exception {
         initComponents();
+        gestor = new GestorBD();
+        this.setVisible(true);
     }
 
     /**
@@ -111,7 +114,7 @@ public class AssignaturesProfessor extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -139,7 +142,21 @@ public class AssignaturesProfessor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AssignaturesProfessor().setVisible(true);
+                try{
+                    ArrayList dni = gestor.cercarDni();
+                    if(dni == null){
+
+                    }else{
+                        int max = dni.size();
+                        ComboBox.removeAllItems();
+                        for (int i = 0; i < max; i++){
+                            ComboBox.addItem((String) dni.get(i));
+                        }
+                        ComboBox.setSelectedIndex(0); 
+                    }
+                }catch(Exception e){
+                    System.out.println(e);
+                }
             }
         });
     }

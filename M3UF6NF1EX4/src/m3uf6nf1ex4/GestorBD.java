@@ -2,6 +2,7 @@ package m3uf6nf1ex4;
 
 import java.awt.List;
 import java.sql.* ;
+import java.util.ArrayList;
 
 public class GestorBD {
     /*Atributs*/
@@ -78,15 +79,23 @@ public class GestorBD {
     public void afegirEstudiant(Assignatura a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    public String cercarDni(){
-        public List<Dni> cercarDni(String dni) throws Exception {
-        Statement cerca = c.createStatement();
-        ResultSet r = cerca.executeQuery("SELECT dni FROM Professor");
-        LinkedList<Dni> llista = new LinkedList<Dni>();
-        while (r.next()) {
-        llista.add(new Assignatura(r.getString("nom"),r.getInt("credits"),r.getString("descripcio"), r.getString("dni"),r.getString("TELEFON")));
-        }
-        return llista;
+    public ArrayList cercarDni(){
+        try{
+            Statement buscar = c.createStatement();
+            ResultSet r = buscar.executeQuery("select dni_Professor from assignatura");
+            ArrayList dniProf= new ArrayList();
+            while (r.next()){
+                String dni = r.getString("dni_Professor");
+                dniProf.add(dni);
+              }
+            if(dniProf == null){
+                return null;
+            }else{
+                return dniProf;
+            }
+        }catch(Exception e){
+            System.out.print(e);
+            return null;
         }
     }
 }
