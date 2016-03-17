@@ -55,30 +55,41 @@ public class GestorBD {
         }
         c.close();
     }
-    public void mostrarAssignaturesProfessor(String dni) throws Exception {
-        Statement buscar = c.createStatement();
-        ResultSet r = buscar.executeQuery("select nom, dni_Professor from assignatura where dni_Professor = '"+dni+"'  order by nom ASC");
-        while (r.next()){
-            System.out.println("Nom: "+r.getString("nom")+ ", dni Professor: "+r.getString("dni_Professor"));
+    public ArrayList mostrarAssignaturesProfessor(String dni) {
+        try{
+            Statement buscar = c.createStatement();
+
+            ResultSet r = buscar.executeQuery("SELECT * FROM Assignatura WHERE dni_professor = '"+dni+"'");
+
+            ArrayList assignaturesProfessor= new ArrayList();
+
+            while (r.next()){
+            String nom = r.getString("nom");
+            int credits = r.getInt("credits");
+            String descripcio = r.getString("descipció");
+            String dni_professor = r.getString("dni_professor");
+            
+            //System.out.println(nom+credits+descripcio+dni_professor);
+
+            Assignatura o = new Assignatura(nom, credits, descripcio, dni_professor);
+            assignaturesProfessor.add(o.getNom()+" | "+o.getCredits()+" | "+o.getDescripcio()+" | "+o.getDniProfessor()+"\n");
+
+          }
+            System.out.println(assignaturesProfessor);
+          if(assignaturesProfessor == null){
+                c.close();
+                return null;
+          }else{
+                c.close();
+                return assignaturesProfessor;
+            }
+        }catch(Exception e){
+            System.out.print(e);
+            return null;
         }
-        c.close();
     }
 
-    public void afegirProfessor(Estudiant p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void afegirProfessors(Estudiant p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void afegirProfessors(Professor p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void afegirEstudiant(Assignatura a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     public ArrayList cercarDni(){
         try{
             Statement buscar = c.createStatement();
@@ -99,5 +110,6 @@ public class GestorBD {
         }
     }
 }
+
         
 

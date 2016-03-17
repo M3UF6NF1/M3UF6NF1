@@ -5,9 +5,13 @@
  */
 package Vistas;
 
+import static Vistas.InsertarEstudiants.adreçaEstudiantField;
+import static Vistas.InsertarEstudiants.dniEstudiantField;
+import static Vistas.InsertarEstudiants.nomEstudiantField;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import m3uf6nf1ex4.Assignatura;
+import m3uf6nf1ex4.Estudiant;
 import m3uf6nf1ex4.GestorBD;
 
 /**
@@ -62,6 +66,12 @@ public class InsertarAssignatures extends javax.swing.JFrame {
         });
 
         jLabel4.setText("DNI PROFESSOR");
+
+        dniProfessorAssignaturesField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dniProfessorAssignaturesFieldActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Menú Principal");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -125,21 +135,22 @@ public class InsertarAssignatures extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    try {
+        try {
+            // TODO add your handling code here:
+            gestor = new GestorBD();
             //Estudiant e = new Estudiant(e.setNom(),e.setDni(),e.setAdreça());
             String nom = nomAssignaturesField.getText();
             String creditsS = creditsAssignaturesField.getText();
-            int credits =Integer.parseInt(creditsS);
+            int credits = Integer.parseInt(creditsS);
+            
             String descripcio = descripcioAssignaturesField.getText();
-            String dniProfessorAssignatura = dniProfessorAssignaturesField.getText();
-            Assignatura a = new Assignatura(nom,credits,descripcio,dniProfessorAssignatura);
-        
-            gestor = new GestorBD();
-            gestor.afegirEstudiant(a);
-    } catch (Exception ex) {
+            String dni_Professor = dniProfessorAssignaturesField.getText();
+            
+            Assignatura a = new Assignatura(nom,credits,descripcio,dni_Professor);
+            gestor.afegirAssignatura(a);
+        } catch (Exception ex) {
             Logger.getLogger(InsertarAssignatures.class.getName()).log(Level.SEVERE, null, ex);
-    }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -147,6 +158,10 @@ public class InsertarAssignatures extends javax.swing.JFrame {
         obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void dniProfessorAssignaturesFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniProfessorAssignaturesFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dniProfessorAssignaturesFieldActionPerformed
 
     /**
      * @param args the command line arguments
